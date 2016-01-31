@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bottomTabs"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/bottom_tab_height"
+    android:background="@drawable/bottom_tab_bg"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:baselineAligned="false"
+    android:gravity="center_vertical"
+    android:orientation="horizontal" >
+
+    <RelativeLayout
+        android:id="@+id/tab1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:id="@+id/tab1l"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/bottom_tab_ic_1"
+                android:scaleType="centerInside" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/main_tab1"
+                android:textColor="@drawable/bottom_tab_text"
+                android:textSize="12sp"
+                android:textStyle="bold"  />
+        </LinearLayout>
+
+        <cn.nekocode.toast.ui.view.BadgeView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tab1l"
+            android:layout_marginLeft="-10dp"
+            android:layout_toRightOf="@+id/tab1l"
+            android:text="1" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/tab2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:id="@+id/tab2l"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/bottom_tab_ic_2"
+                android:scaleType="centerInside" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/main_tab2"
+                android:textColor="@drawable/bottom_tab_text"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <cn.nekocode.toast.ui.view.BadgeView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tab2l"
+            android:layout_marginLeft="-10dp"
+            android:layout_toRightOf="@+id/tab2l"
+            android:text="1" />
+    </RelativeLayout>
+
+</LinearLayout>

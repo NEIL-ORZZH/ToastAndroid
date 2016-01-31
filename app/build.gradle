@@ -1,0 +1,89 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "23.0.0 rc3"
+
+    defaultConfig {
+        applicationId "cn.nekocode.toast"
+        minSdkVersion 15
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+            assets.srcDirs = ['assets']
+            res.srcDirs = [
+                    'src/main/res'
+            ]
+        }
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    packagingOptions{
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+def appcompatVersion = "22.2.0"
+def retrofitVersion = "2.0.0-beta1"
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+
+    // Android support library
+    compile "com.android.support:appcompat-v7:$appcompatVersion"
+    compile "com.android.support:recyclerview-v7:$appcompatVersion"
+
+    // HTTP client
+    compile "com.squareup.retrofit:retrofit:$retrofitVersion"
+
+    // JSON library
+    compile "com.squareup.retrofit:converter-gson:$retrofitVersion"
+
+    // Image downloader & transformer
+    compile "com.facebook.fresco:fresco:0.6.1+"
+
+    // Reactive library
+    compile "com.squareup.retrofit:adapter-rxjava:$retrofitVersion"
+    compile "io.reactivex:rxkotlin:0.24.100"
+    compile "io.reactivex:rxandroid:1.0.1"
+
+    // Kotlin std library
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    compile 'org.jetbrains.anko:anko-sdk15:0.7.2' // sdk19, sdk21, sdk23 are also available
+    compile 'org.jetbrains.anko:anko-support-v4:0.7.2' // In case you need support.v4 bindings
+
+    compile 'com.mani:thindownloadmanager:1.0.0'
+
+    // Leancloud
+    compile 'cn.leancloud.android:avoscloud-sdk:v3.+'
+}
+
+buildscript {
+    ext.kotlin_version = '1.0.0-beta-1038'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
+    }
+}
+repositories {
+    mavenCentral()
+}
